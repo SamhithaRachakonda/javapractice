@@ -1,0 +1,98 @@
+Notes:  Prefix Sum:
+-------------------
+Prefix sum is the technique where you precompute & store the cumulative sum of the sequence of elements that allows fast sum calculation of any continuous range.
+
+Let's say we have a sequence of elements A as mentioned below-
+A = {a0, a1, a2, a3, a4, a5}
+
+so Prefix Sum P will be calculated as
+P=  {p0, p1, p2, p3, p4, p5}
+
+where-
+p0 = a0
+p1 = a1 + a0
+p2 = a0 + a1 + a2
+p3 = a0 + a1 + a2 + a3 
+p4 = a0 + a1 + a2 + a3 + a4
+p5 = a0 + a1 + a2 + a3 + a4 + a5
+
+Q) Say we need to sum get sum of all elements from indices 
+ [2 to 5] => [a2 + a3 + a4 + a5]  or [p5 - p1] 
+ [1 to 4] => [a1 + a2 + a3 + a4]      or [p4 - p0]
+ [0 to 4] => [a0 + a1 + a2 + a3 + a4]  or  [p4]
+
+MCQ:
+----
+Q1. Prefix Sum Formula
+The prefix sum formula for an array A of N integers is given by :-
+
+A). prefSum[i] = prefSum[i] + A[i]
+B). prefSum[i] = prefSum[i-1] + A[i]
+C). prefSum[i-1] = prefSum[i] + A[i]
+D). prefSum[i-1] = prefSum[i-1] + A[i]
+
+Answer: prefSum[i] = prefSum[i-1] + A[i]
+Prefix sum of the given array A, at a particular index 'i' is the sum of prefix sum at index 'i-1' (i.e., sum of all the element from 0 to i-1) and the element at index i (A[i])
+
+Q2. Time Complexity of Prefix Sum
+What is the time complexity of creating the prefix sum array of an array A of N integers ?
+
+A). O(1)
+B). O(N)
+C). O(N^2)
+D). O(N^3)
+
+Answer: O(N)
+The code need to traverse the array of size N from 1 to N-1 to get the prefix sum.
+    prefixSum[0] = A[0];
+    for(int i=1; i<N; i++){
+        prefixSum[i] = prefixSum[i-1] + A[i];
+    }
+    Time Complexity for this code is O(N)
+
+Q5. Prefix Sum - I
+Given the prefix sum of an array, prefSum = [-2, 4, 1, 5, 2]
+
+What is the sum of the original array from index 0 to 2 (0-based) ?
+
+A). 3
+B). 4
+C). 1
+D). 5
+
+Answer: 1
+prefixSum[0 to 2] = prefixSum[2] = 1
+
+Q6. Prefix Sum - II
+Given the prefix sum of an array, prefSum = [-2, 4, 1, 5, 2]
+
+What is the sum of the original array from index 2 to 4 (0-based) ?
+
+A). 2
+B). 1
+C). -2
+D). 8
+
+Answer: -2
+prefixSum[2 to 4] = prefixSum[0 to 4] - prefixSum[0 to (2-1)]
+                  = prefixSum[4] - prefixSum[1]
+                  = 2-4 = -2
+
+Additional Problem MCQ:
+-----------------------
+Q1. Prefix Sum - III
+Given the prefix sum of an array, prefSum = [-2, 4, 1, 5, 2]
+
+What is the sum of the original array from index 1 to 2 (0-based) ?
+
+A). 5
+B). -3
+C). 3
+D). -5
+
+Answer: 3
+Given Prefix Sum Array: [-2, 4, 1, 5, 2]
+Sum of original array from index 1 to 2 = prefSum[2] - prefSum[1-1]
+                                        = prefSum[2] - prefixSum[0]
+                                        = 1 - (-2)
+                                        = 3

@@ -1,0 +1,19 @@
+Wrapper Class:
+=> A class whose objects contains or wraps Primitive Data Types (int, float, boolean ...).
+=> Object of a wrapper class contains a field which stores PDT.
+
+    PDT             Wrapper Class
+    int             Integer
+    float           Float
+    char            Character
+    boolean         Boolean
+    long            Long
+
+ArrayList Class:
+java.util.ArrayLists
+
+Syntax to create ArrayList:
+    List<AnyClass> list = new ArrayList<AnyClass>();
+
+** ArrayList has variable size
+** It has some in-build utilities

@@ -1,0 +1,37 @@
+Q4. Time Complexity - Arrays
+What is the time complexity for inserting/deleting at the beginning of the array?
+
+A). O(1)
+B). O(N)
+C). O(logN)
+D). O(N^2)
+
+Answer: O(N)
+Since the element is added or deleted at the beginning of the array => either the remaining elements indexes are shifted by 1 to the right or left. 
+If we have N elements in the array, it takes O(N) to complete the task.
+
+Additional MCQ:
+---------------
+Q3. Problems on 1D Arrays-2 MCQ D
+What will be the output of the following code?
+
+    class Main {
+        static void fun(int[]arr) {
+            arr[3] = 98;
+            return;
+        }
+
+        public static void main(String args[]) {
+            int[]arr = {10,20,30,40,50};
+            fun(arr);
+            System.out.println(arr[3]);
+        }
+    }
+
+A). 40
+B). 30
+C). 98
+D). Error
+
+Answer: 98
+Since the array value is updated in the func method and the arrays are point of reference arrays, so the value at arr[3] gets updated to 98.

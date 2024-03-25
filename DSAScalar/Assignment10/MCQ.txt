@@ -1,0 +1,143 @@
+Different Number Systems and their use cases -
+----------------------------------------------
+The Number System, also known as the Numeral System, is the system of naming or representing numbers. Most of us who haven't heard the term binary or octal or hexadecimal are likely only familiar with the decimal system in which we represent numbers using digits 0 to 9.
+
+Decimal Number System (Base-10) - As we all know, this system uses 10 digits from 0 to 9 to represent any number.
+Convert  Binary to decimal should be covered with a small example
+
+Binary Number System (Base- 2) - This system uses 2 digits which are 0 and 1 for number representation. For example, the number 10 in decimal is represented as 1010 in binary.
+
+Hexadecimal Number System (Base-16) - This system uses 16 digits which are 0 to 9 and A to F ( YES ! Letters in numbers) for number representation. For example, the number 30 in decimal is represented as 1E in binary.
+
+Octal Number System (Base- 8) - This system uses 8 digits from 0 to 8 for number representation. For example, the number 9 in decimal is represented as 11 in octal.
+
+Ref - https://medium.com/swlh/the-number-system-80e64e7bcb21 
+
+Why does the computer understand only Binary ?
+Computers use binary to store data. Not only because it's a reliable way of storing the data, but computers only understand 1s and 0s - binary. A computer's main memory consists of transistors that switch between high and low voltage levels - sometimes 5V, sometimes 0. That reading is done by the computer's processor which reads the transistor state - high or low - to control the computer's other devices, according to software instructions.
+
+Ref - https://betterprogramming.pub/how-does-binary-code-work-f1ac8afb8181 
+
+MCQ:
+====
+
+Q1. Binary Addition
+Given two binary numbers A = 1001011 and B = 11001001. What is their sum?
+
+A). 100100100
+B). 100010100
+C). 101000100
+D). 100010010
+
+Answer: B - 100010100
+Binary addition:
+A   =  01001011 
+B   =  11001001
+----------------
+A+B = 100010100
+----------------
+
+Q2. Binary to Decimal - III
+Which of the following is the correct conversion of 10101101(base 2) to decimal?
+
+A). 175
+B). 173
+C). 171
+D). 169
+
+Answer: B - 173
+10101101 
+= 1*2^7 + 0*2^6 + 1*2^5 + 0*2^4 + 1*2^3 + 1*2^2 + 0*2^1 + 1*2^0
+= 128 + 0 + 32 + 0 + 8 + 4 + 0 + 1
+= 173
+
+Q3. Decimal to Binary - MCQ
+Which of the following is a correct conversion of 76 (base 10) to binary?
+
+A). 1010000
+B). 1001010
+C). 1001100
+D). 1001110
+
+Answer: C - 1001100
+     2 | 76
+     2 | 38 - 0
+     2 | 19 - 0
+     2 |  9 - 1
+     2 |  4 - 1
+     2 |  2 - 0
+     2 |  1 - 0
+          0 - 1
+    The reverse order of the reminder obtained gives the binary representation for 76 (base 10) number.
+    =>  1001100
+
+Q4. Bit Operations
+Given a = 1010011 and b = 1001001, their OR, XOR and AND are -
+
+A). OR = 1011011 , XOR = 0011010 , AND = 1000001
+B). OR = 1011101 , XOR = 1011010 , AND = 1000001
+C). OR = 1011011 , XOR = 1000001 , AND = 0011010
+D). OR = 1011101 , XOR = 1000001 , AND = 0011010
+
+Answer: A - OR = 1011011 , XOR = 0011010 , AND = 1000001
+
+a   =    1010011 
+b   =    1001001
+------------------
+a|b =    1011011    - Returns 1 if either of bits is 1, else 0
+a^b =    0011010    - Returns 1 if bits are different in input
+a&b =    1000001    - Returns 1 only if both bits are 1, else 0
+
+Q5. Bit Operations - 1
+If a&1 = 1, then a is?
+
+A). even
+B). odd
+C). can be either odd or even
+
+Answer: B - odd
+The least significant bit will be 1 only for odd, for even it will be 0.
+So, a&1 = 1 only if both bits are 1.
+For that bit to be 1 in a, it has to be odd.
+
+Q6. Bit Operations - 5
+What are the values of a&a, a|a, a^a?
+
+A). a&a = a , a|a = a , a^a = a
+B). a&a = a , a|a = a , a^a = 0
+C). a&a = 0 , a|a = a , a^a = a
+D). a&a = 0 , a|a = a , a^a = 0
+
+Answer: B - a&a = a , a|a = a , a^a = 0
+a^a = 0, since both bits are same => returns 0.
+
+Additional MCQ:
+---------------
+Q1. Bit Operations - 2
+Given a=10, what will be the 0-th bit in a|1 ?
+
+A). 0
+B). 1
+C). cannot be determined
+
+Answer: B - 1
+a   =  1010 
+b   =     1
+------------------
+a|b =  1011     => 0-th bit is: 1
+
+Q2. Bit Operations - 3
+What happens to the 0-th bit in a when we perform a = a^1 ?
+
+A). It gets toggled
+B). It gets unset
+C). It gets set
+D). It remains same
+
+Answer: A - it gets toggled.
+a   =  0000            a   =  0001 
+b   =     1            b   =     1
+-----------            -----------
+a^b =  0001            a^b =  0000
+=> 0-th bit is: 1 for a0=0 and 0 for a0=1.
+=> The bit is getting switched / toggled when did the ^ operation.

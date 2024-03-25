@@ -1,0 +1,21 @@
+Q3. Time Complexity-ii
+What is the time complexity of the following code snippet?
+
+    ArrayList v = new ArrayList();
+    for(int i=0; i<n; i++){
+        v.add(i);
+    }
+    Collections.sort(v);
+
+A). O(n)
+B). O(nlogn)
+C). O(1)
+D). O(n^2)
+E). None of the above.
+
+Answer: O(nlogn)
+When asked for the time complexity, always answer the worst time complexity, unless specified.
+In the above code, using an Arraylist, the elements are added into it in ascending order (Already sorted data). => Time complexity taken here = O(n)
+Then used collections to sort the data which takes the worst case time complexity as O(nlogn)
+
+Total time complexity = O(n) + O(nlogn) = O(n).

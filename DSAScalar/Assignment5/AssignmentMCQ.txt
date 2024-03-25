@@ -1,0 +1,25 @@
+Q1. Find all the subarrays
+Given A = [1, -2, 5, 2, -1, 6]. Choose all the valid subarrays of the array.
+
+A). [5, 2, -1]
+B). [-2, -1, 6]
+C). [1, -2, 5, 2]
+D). [6]
+
+Answer: A, C, D
+A subarray is a contiguous part of the array from a given starting index to ending index.
+A, C, D options has the elements provided in a continuous manner without any discontinuity.
+Option B has discontinuity as -2 is at index 1 and -1, 6 are at indices 4, 5.
+
+Q3. Total Number of Subarrays
+Given an array of size 21, find the total number of subarrays of the array.
+
+A). 254
+B). 231
+C). 369
+D). 441
+
+Answer: B
+Total number of sub arrays in a given array follows the formula: N*(N+1)/2 
+    where, N is the size of the given array.
+For 21 size array, total subarrays = 21*22/2 

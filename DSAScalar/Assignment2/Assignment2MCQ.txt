@@ -1,0 +1,247 @@
+Q1. Find Time Complexity - 1
+What is the time complexity of the following code snippet:
+
+    for(int i = 1 ; i <= n ; i+=2){
+        print(i);
+    }
+
+A). O(n^3)
+B). O(n^2)
+C). O(n)
+D). O(logn)
+Answer: O(n)
+Since the iteration is incremented by 2 everytime, the iteration count is reduced to N/2.
+In Big(O) notation, it is O(n).
+
+Q2. Find Time Complexity - 2
+What is the time complexity of the following code snippet:
+
+    void solve(int N, int M){
+        for(int i = 1 ; i <= N ; i++){
+            if(N % i == 0)
+                print(i);
+        }
+        for(int i = 1 ; i <= M ; i++){
+            if(M % i == 0)
+                print(i);
+        }
+    }
+
+A). O(N)
+B). O(M)
+C). O(N+M)
+D). O(NM)
+Answer: O(N+M)
+Since both the loops are independent, sum of the iterations is the result
+    => N loops + M loops
+    =  O(N+M)
+
+Q3. Find Time Complexity - 3
+What is the time complexity of the following code snippet:
+
+    int func(int n){
+        int s = 0;
+        for(int i = 1 ; i <= 100 ; i++){
+            s = s + i;
+        }
+        return s;
+    }
+
+A). O(n)
+B). O(n^2)
+C). O(s)
+D). O(1)
+Answer: O(1)
+Since, it is a constant loop nummber independent of the 'n' value given in the function, the Big(O) notation for it is O(1).
+
+Q4. Find Time Complexity - 7
+What is the time complexity of the following code snippet:
+
+    for(int i = 0 ; i < n ; i++){
+        for(int j = 0 ; j <= i ; j++){
+            print(i+j);
+        }
+    }
+
+A). O(n^2)
+B). O(n)
+C). O(nlogn)
+D). O(n^3)
+Answer: O(n^2)
+Since, Outer loop runs (n-0) times.    [0,n) => n-0 = n times.
+       Inner loop runs 'i' times for each iteration of 'i'.
+    => 1 * (1) + 1 * (2) + 1 * (3) + .... + 1 * (n loops)
+    =  n*(n+1) / 2
+    =  O(n^2)   in Big(O) notation.
+
+Q5. Find Time Complexity - 8
+What is the time complexity of the following code snippet:
+
+    for(int i = 1 ; i <= n ; i*=2){
+        for(int j = 1 ; j <= n ; j++){
+            print(i + j);
+        }
+    }
+
+A). O(n^2)
+B). O(nlogn)
+C). O(n)
+D). O(1)
+Answer: O(nlogn)
+Since, Outer loop runs logn(base 2) times.
+    Explanation: loop sequence for i is: 1, 2, 4, 8, ... k, where k <= n.
+                 The sequence is logarithmic with base 2. => logn(base 2)
+       Inner loop runs 'n' times for each iteration of 'i'
+    => 1 * (n) + 1 * (n) + 1 * (n) + .... + 1 * (n)  {'n' is added logn times}
+    =  n * logn(base 2)
+    =  O(nlogn)     in Big(O) notation.
+
+Q6. Time-Complexity-5
+What is the time complexity of the following code:
+
+    int a = 0, i = N;
+    while(i > 0){
+        a += i;
+        i /= 2;
+    }
+
+A). O(N)
+B). O(sqrt(N))
+C). O(N/2)
+D). O(logN)
+Answer: O(log(N))
+Loop sequence is N, N/2, N/4, .... , 1  => logarithmic sequence with base 2
+    => loop runs logN(base 2) times
+    =  O(logN)
+
+-----------------------------------------------------------------------------
+|Logarithmic sequence is:                                                   |
+|            N, N/2, N/4, N/8, .... ,1                                      |
+|                    OR                                                     |
+|            1, 2, 4, 8, ..... , N/2, N (the reverse order of the above).   |
+-----------------------------------------------------------------------------
+
+Q7. Find Time Complexity - 6
+What is the time complexity of the following code snippet
+
+    for(int i = 1 ; i <= 100 ; i*=2){
+        for(int j = 1 ; j <= n ; j++){
+            print(i + j);
+        }
+    }
+
+A). O(n^2)
+B). O(n)
+C). O(nlogn)
+D). O(1)
+Answer: O(n)
+Outer loop is a log sequence, it runs log100(base2) times (which is a constant)
+Inner loop runs 'n' times. [1, n] => n-1+1 = n.
+Time Complexity = log100(base2) * n
+                = O(n)      (Big(O) notation)
+
+Q8. Find Time Complexity - 5
+What is the time complexity of the following code snippet
+
+    int func(int n){
+        int s = 0;
+        for(int i = 0 ; i < n ; i = i * 2){
+            s = s + i;
+        }
+        return s;
+    }
+
+A). O(n)
+B). O(n^(1/2)) or O(sqrt(n))
+C). O(logn)
+D). O(infinity)
+Answer: O(infinity)
+For any value of 'i', the increment is 0.
+    Since, the first value of i = 0
+    Every increment, i = i * 2 = 0
+    Therefore, every iteration i value will be 0 and never reaches n.
+    It is an INFINITE LOOP.
+
+Q9. Time Complexity Easy 01
+What is the Time Complexity of following snippet ?
+
+    int count = 0;
+    while(N>0){
+        count ++;
+        N /= 3;
+    }
+
+A). O(N)
+B). O(N*N)
+C). O(NlogN)
+D). O(logN){Base 3}
+E). O(logN){Base 2}
+Answer: O(logN){Base 3}
+The code loop sequence is: N, N/3, N/9, N/27, .... , ~0 (but never 0)
+    The sequence is logarithmic sequence with base 3.
+Therefore, Time complexity = O(logN){Base 3}
+
+Q10. Time Complexity - 3B
+What will be the Time Complexity of the given code?
+
+    int void solve(){
+        int i = 1;
+        while(i<n){
+            int x = i;
+            while(x-- > 0){
+                // O(1) operation
+            }
+            i++;
+        }
+    }
+
+A). O(nlogn)
+B). O(n)
+C). O(nsqrt(n))
+D). O(n^2)
+E). None of the above.
+Answer: O(n^2)
+Outer loop runs ~n times
+Inner loop runs i times at each iteration
+=> Time Complexity = n*(n+1)/2 = O(n^2)
+
+Q11. Time Complexity Easy 02
+What is the Time Complexity of following snippet?
+
+    for(i=0; i<N; i++){
+        for(j=i; j<N; j++){
+            break++;
+        }
+    }
+
+A). O(N*N)
+B). O(N*log(N))
+C). O(N)
+D). O(log(N))
+E). None of the above.
+Answer: O(N)
+Outer loop runs 'N' times {[0,N) range = N-0 = N }
+Inner loop runs 1 time for any value of 'i', because once the inner loop enters with any value of i, the break statement will break the loop.
+Therefore, Time Complexity = N * 1 = O(N)
+
+Q12. NESTED_CMPL2
+What is the time complexity of the following code:
+
+    int a = 0;
+    for(i=0; i<N; i++){
+        for(j=N; j>i; j--){
+            a = a+i+j;
+        }
+    }
+
+A). O(N)
+B). O(N*log(N))
+C). O(N*sqrt(N))
+D). O(N*N)
+Answer: O(N*N)
+Outer loop runs 'N' times   {[0,N) range = N-0 = N }
+Inner loop runs (N-i) times for every value of 'i', j decrement here is 1.
+=> 1 * (N-0) + 1 * (N-1) + 1 * (N-3) + .... + 1 * (N-(N-2)) + 1 * (N-(N-1))
+=  Sum of N Natural numbers
+=  N*(N+1)/2
+=  O(N*N)   Big(O) notation.
