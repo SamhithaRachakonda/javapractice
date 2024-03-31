@@ -1,11 +1,11 @@
-package ArraysCoding.Arrays2D.SpiralMatrix;
+package ArraysCoding.Arrays2D.PatternInMatrix;
 
 import java.util.Scanner;
 
-public class Assignelements2 {
-     /*
+public class Assignelements {
+    /*
      * Problem Statement:
-     * Given a positive integer n, generate an n*n matrix filled with elements from 1 to n^2 in spiral order with ANTI-CLOCKWISE DIRECTION.
+     * Given a positive integer n, generate an n*n matrix filled with elements from 1 to n^2 in spiral order.
      * 
      * Ex- Given n = 3:
      * Output:
@@ -47,18 +47,18 @@ public class Assignelements2 {
         int current = 1;
         int topRow = 0, bottomRow = n-1, rightCol = n-1, leftCol = 0;
         while(current <= n*n){
-            for(int i=topRow; i<=bottomRow && current<=n*n; i++)
-                a[i][leftCol] = current++;
-            leftCol++;
             for(int j=leftCol; j<=rightCol && current<=n*n; j++)
-                a[bottomRow][j] = current++;
-            bottomRow--;
-            for(int i=bottomRow; i>=topRow && current<=n*n; i--)
+                a[topRow][j] = current++;
+            topRow++;
+            for(int i=topRow; i<=bottomRow && current<=n*n; i++)
                 a[i][rightCol] = current++;
             rightCol--;
             for(int j=rightCol; j>=leftCol && current<=n*n; j--)
-                a[topRow][j] = current++;
-            topRow++;   
+                a[bottomRow][j] = current++;
+            bottomRow--;
+            for(int i=bottomRow; i>=topRow && current<=n*n; i--)
+                a[i][leftCol] = current++;
+            leftCol++;
         }
 
         System.out.println("Print Matrix:");

@@ -1,4 +1,4 @@
-package ArraysCoding.Arrays2D.SpiralMatrix;
+package ArraysCoding.Arrays2D.PatternInMatrix;
 
 import java.util.Scanner;
 

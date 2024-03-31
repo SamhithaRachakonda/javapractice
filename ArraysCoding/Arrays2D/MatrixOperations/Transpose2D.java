@@ -1,11 +1,12 @@
 package ArraysCoding.Arrays2D.MatrixOperations;
 
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class Transpose2D {
     /*
      * Problem Statement:
-     * Write a program to display transpose of matrix entered by the user.
+     * Write a program to display transpose of a given matrix.
      * 
      * Ex- 
      * Given Matrix:
@@ -29,7 +30,8 @@ public class Transpose2D {
     }
 
     static int[][] Transpose2d(int[][] a, int r1, int c1){
-        
+        // Non-square matrix: transpose can only be created by creating a new matrix as rows and columns are interchanged.
+        // Since rows and columns are not equal in non-sqaure matrix.
         int[][] transpose = new int[c1][r1];
         for(int i=0; i<c1; i++){
             for(int j=0; j<r1; j++){
@@ -39,9 +41,25 @@ public class Transpose2D {
         return transpose;
     }
 
-    static void Transpose2dInplace(int[][] a, int r1, int c1){
+    static ArrayList<ArrayList<Integer>> Transpose2dArraylist(ArrayList<ArrayList<Integer>> A, int r1, int c1){
+        ArrayList<ArrayList<Integer>> res = new ArrayList<>();
+
         for(int i=0; i<c1; i++){
-            for(int j=i; j<r1; j++){ 
+            ArrayList<Integer> temp = new ArrayList<>();
+            for(int j=0; j<r1; j++){
+                temp.add(A.get(j).get(i));
+            }
+            res.add(temp);
+        }
+
+        return res;
+    }
+
+    static void Transpose2dInplace(int[][] a, int r1, int c1){
+        // Inplace code only works for the condition: r1==c1=N
+        for(int i=0; i<r1-1; i++){  // Traversing row from 0 to N-2
+            for(int j=i+1; j<c1; j++){  // Traversing col from row+1 to N-1.
+                // swapping only non-principle diagonal elements
                 // swap a[i][j] to a[j][i]
                 int temp = a[i][j];
                 a[i][j] = a[j][i];
@@ -63,13 +81,35 @@ public class Transpose2D {
         }
         scan.close();
 
+        // Given Matrix a of size r1*c1
         System.out.println("Given Matrix:");
         printArray(a);
 
+        // Transpose of the matrix a stored in new matrix transpose
+        // T.C: O(r1*c1)
+        // S.C: O(r1*c1) 
         int[][] transpose = Transpose2d(a, r1, c1);
         System.out.println("Transpose of a matrix:");
         printArray(transpose);
 
+        // Transpose of the matrix 'a' stored in new arraylist Transpose
+        // T.C: O(r1*c1)
+        // S.C: O(r1*c1)
+        ArrayList<ArrayList<Integer>> A = new ArrayList<>();
+        for(int i=0; i<r1; i++){
+            ArrayList<Integer> temp = new ArrayList<>();
+            for(int j=0; j<c1; j++){
+                temp.add(a[i][j]);
+            }
+            A.add(temp);
+        }
+        ArrayList<ArrayList<Integer>> Transpose = Transpose2dArraylist(A, r1, c1);
+        System.out.println("Transpose of a matrix using ArrayList:");
+        System.out.println(Transpose);
+
+        // Transpose of the matrix a with in-place method
+        // T.C: O(r1*c1)
+        // S.C: O(1) [Only possible for square matrix where r1==c1]
         Transpose2dInplace(a, r1, c1);
         System.out.println("Transpose of an inplace matrix:");
         printArray(a);
